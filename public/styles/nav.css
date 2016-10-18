@@ -5,26 +5,24 @@
   height: 80px;
 
   background-color: #00a870;
-  font-color: #e8fdff;
+  font-color: white;
   padding-left: 2em;
   padding-right: 2em;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-
-
-
+  z-index: 10;
 }
 
 #nav-bar .header  {
 
   font-size: 2em;
-  line-height: -20%;
+  line-height: 40px;
 
 }
 
 #nav-bar .logo {
 
-  margin-left: 2em;
+  margin-left: 2;
   width: 80px;
   height: 80px;
 
