@@ -1,0 +1,97 @@
+article {
+
+  border: 1px solid #cecece;
+  max-width: auto;
+  margin: 2em;
+  border-radius: 5px;
+}
+
+
+article header {
+  background-color: #eee;
+  height: 70px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#name {
+
+  float:left;
+  font-size: 1.5em;
+  color:#244751;
+
+}
+
+
+.avatar {
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  margin: .5em .5em .5em .5em;
+  float: left;
+  border-radius: 3px;
+}
+
+article header p {
+  float: right;
+  margin-right: .5em;
+  color: #cccccc;
+  margin-top: .5em;
+
+}
+
+article div {
+  height: 75px;
+}
+
+article div p {
+  float: left;
+  margin-top: .5em;
+  margin-left: .5em;
+}
+
+article footer {
+
+  border-top: 1px solid #eee;
+  height: 50px;
+}
+
+article footer p {
+  float: left;
+  margin: .5em .5em .5em .5em;
+  color: #cccccc;
+}
+
+i {
+  float: right;
+  color: aqua;
+  height: 10px
+  width: 10px;
+  margin-top: .5em;
+  margin-right: .5em;
+  opacity: 0;
+}
+
+article:hover {
+  border: 1px solid black;
+}
+
+article:hover header{
+  background-color: #cccccc;
+}
+
+article:hover header p {
+  color: #808080;
+}
+
+article:hover footer p {
+  color: #808080;
+}
+
+article:hover i{
+  opacity: 100;
+}
+
+article:hover footer{
+  border-top: 1px solid black;
+}
