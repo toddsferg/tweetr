@@ -1,4 +1,4 @@
-article {
+.tweeted {
 
   border: 1px solid #cecece;
   max-width: auto;
@@ -14,11 +14,11 @@ article header {
   border-top-right-radius: 5px;
 }
 
-#name {
+.chosen-name {
 
-  float:left;
+  float: left;
   font-size: 1.5em;
-  color:#244751;
+  color: #244751;
 
 }
 
@@ -32,7 +32,7 @@ article header {
   border-radius: 3px;
 }
 
-article header p {
+.handle {
   float: right;
   margin-right: .5em;
   color: #cccccc;
@@ -40,23 +40,23 @@ article header p {
 
 }
 
-article div {
+.midspace {
   height: 75px;
 }
 
-article div p {
+.tweettext {
   float: left;
   margin-top: .5em;
   margin-left: .5em;
 }
 
-article footer {
+.footer {
 
   border-top: 1px solid #eee;
   height: 50px;
 }
 
-article footer p {
+.dateSent {
   float: left;
   margin: .5em .5em .5em .5em;
   color: #cccccc;
