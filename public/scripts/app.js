@@ -7,16 +7,18 @@ $(document).ready(function(){
 
 
 function renderTweets(array){
+  console.log(array);
   for( var i = 0; i < array.length; i++){
     var currentTweet = array[i];
     var $newTweet = createTweetElement(currentTweet);
-    $('.feeder').append($newTweet)
+    //console.log($newTweet);
+    $('.feeder').prepend($newTweet);
   }
 }
 
 function createTweetElement(tweetData){
   var time = new Date;
-  console.log(time);
+
 
   var $freshTweet = $("<article>").addClass("tweeted");
   var $header = $('<header>');
@@ -44,15 +46,16 @@ function createTweetElement(tweetData){
 
 $('form').on("submit", function(event){
   event.preventDefault();
+  console.log("submit");
   $.ajax({
     method: 'post',
     url: '/tweets',
     dataType: 'json',
     data: $(this).serialize()
-    // success:function(data){
-    //   console.log(data);
 
-  });
+
+  });loadTweets();
+
 });
 
   function loadTweets(){
@@ -65,7 +68,7 @@ $('form').on("submit", function(event){
     }).done(function(data){
       renderTweets(data);
     })
-  }loadTweets();
+  }
 
 })
 
