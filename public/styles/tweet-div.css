@@ -16,6 +16,7 @@ article header {
 
 .chosen-name {
 
+  margin-top: 20px;
   float: left;
   font-size: 1.5em;
   color: #244751;
@@ -33,6 +34,7 @@ article header {
 }
 
 .handle {
+  margin-top: 10px;
   float: right;
   margin-right: .5em;
   color: #cccccc;
@@ -57,6 +59,7 @@ article header {
 }
 
 .dateSent {
+  font-size: .5em;
   float: left;
   margin: .5em .5em .5em .5em;
   color: #cccccc;
