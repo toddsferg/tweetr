@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-  console.log('hello')
+
   $('.new-tweet').on('input', 'textarea', function(){
     var maxLength = 140;
     var length = $(this).val().length;
@@ -10,6 +10,8 @@ $(document).ready(function(){
 
     if (currentLength < 0){
       $(this).parent().find('.counter').css({ "color": "red"});
+    } else if (currentLength > 0){
+      $(this).parent().find('.counter').css({ "color": "black"});
     }
 
   });

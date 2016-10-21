@@ -6,6 +6,7 @@
   margin: 2em;
   border: 1px solid #cecece;
   padding: 1em;
+  padding-bottom: 2em;
   border-radius: 5px;
  }
 /*underline*/
@@ -22,9 +23,20 @@
   margin-top: 10px;
   height: 3em;
   width: 100%;
-  padding: 5px;
+  padding-bottom: 30px;
 }
 /* button*/
 section span {
   float: right;
+  padding-bottom: 20px;
+
+}
+
+#warning {
+  float: left;
+  color: red;
+}
+
+#butt {
+  float: left;
 }

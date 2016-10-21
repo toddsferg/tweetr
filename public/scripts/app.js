@@ -7,19 +7,16 @@ $(document).ready(function(){
 
 
 function renderTweets(array){
-  console.log(array);
+
   for( var i = 0; i < array.length; i++){
     var currentTweet = array[i];
     var $newTweet = createTweetElement(currentTweet);
-    //console.log($newTweet);
     $('.feeder').prepend($newTweet);
   }
 }
 
 function createTweetElement(tweetData){
   var time = new Date;
-
-
   var $freshTweet = $("<article>").addClass("tweeted");
   var $header = $('<header>');
   var $avatar = $('<img>').addClass("avatar").attr("src", tweetData.user.avatars.regular);
@@ -38,14 +35,25 @@ function createTweetElement(tweetData){
   $footer = $footer.append($dateSent).append($iconFlag).append($iconRetweet).append($iconHeart);
 
   $freshTweet = $freshTweet.append($header).append($midspace).append($footer);
-  var $tweet = $('.feeder').append($freshTweet);
+  var $tweet = $('.feeder').prepend($freshTweet);
   return $tweet;
  }
 
 //Hijax
 
 $('form').on("submit", function(event){
+
   event.preventDefault();
+  var tweetLength = $(this).find('textarea').val().length;
+
+  console.log(tweetLength);
+  if( tweetLength < 2){
+    $('#warning').text('too short');
+    setTimeout(function(){$('#warning').text(''); }, 2500);
+  } else if(tweetLength > 140){
+    $('#warning').text('tweet too long!');
+    setTimeout(function(){$('#warning').text(''); }, 2500);
+  } else {
   console.log("submit");
   $.ajax({
     method: 'post',
@@ -54,8 +62,9 @@ $('form').on("submit", function(event){
     data: $(this).serialize()
 
 
-  });loadTweets();
-
+  });
+  loadTweets();
+}
 });
 
   function loadTweets(){
