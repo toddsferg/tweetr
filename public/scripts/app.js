@@ -15,6 +15,8 @@ function renderTweets(array){
   }
 }
 
+//////////Built Tweet Element
+
 function createTweetElement(tweetData){
   var time = new Date;
   var $freshTweet = $("<article>").addClass("tweeted");
@@ -39,14 +41,15 @@ function createTweetElement(tweetData){
   return $tweet;
  }
 
-//Hijax
+//Hijax with Ajax
 
 $('form').on("submit", function(event){
 
   event.preventDefault();
   var tweetLength = $(this).find('textarea').val().length;
 
-  console.log(tweetLength);
+  ////////length verification
+
   if( tweetLength < 2){
     $('#warning').text('too short');
     setTimeout(function(){$('#warning').text(''); }, 2500);
@@ -79,12 +82,17 @@ $('form').on("submit", function(event){
     })
   }
 
+//////////////Focus On Text area
+
+$('#nav-span').on("click", function toggle(){
+  $('.new-tweet').slideToggle("slow", function(){
+    $('textarea').focus();
+  });
+});
+
+$('textarea').focus();
+
 })
-
-
-
-
-
 
 
 

@@ -12,19 +12,36 @@
   z-index: 10;
 }
 
-.header  {
+#nav-bar .logo {
 
-  font-size: 2em;
-  line-height: 80px;
-  color: white;
+  margin-right: 1em;
+  width: 80px;
+  height: 80px;
+  float: left;
 
 
 }
 
-#nav-bar .logo {
+.header  {
 
-  margin-left: 2em;
-  width: 80px;
-  height: 80px;
+  font-size: 2em;
+
+  color: white;
+
+  line-height: 80px;
+  float: left;
+}
+
+#nav-span {
+  color: #00a870;
+  float: right;
+  height: 50px;
+  width: 75px;
+  line-height:80px;
+  background-color: white;
+  margin: 15px;
+  border-radius: 5px;
+  border: 2px solid black;
+
 
 }
