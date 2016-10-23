@@ -1,28 +1,32 @@
 "use strict";
 
-const initialTweets = require("./tweets");
+const MongoClient = require("mongodb").MongoClient;
+const MONGODB_URI = "mongodb://127.0.0.1:27017/tweeter";
 
-const db = { tweets: initialTweets };
+let collection;
 
-const dbMethods = {
+  const Tweets = {
+    saveTweet: (tweet, cb) => {
+      collection.insert(tweet);
+      return true;
+    },
 
-  saveTweet: (data) => {
-    db.tweets.push(data);
-    return true;
-  },
-
-  getTweets: () => {
-    return db.tweets.sort(function(a, b) { return a.created_at - b.created_at });
-  }
-
+    getTweets: (cb) => {
+      collection.find().toArray((err, results) => {
+        cb(results.sort(function(a, b) {
+          return a.created_at - b.created_at
+        }))
+      })
+    }
 }
+
 
 module.exports = {
+  connect: (callback) => {
 
-  connect: (onConnect) => {
+    MongoClient.connect(MONGODB_URI, (err, db) => {
 
-    onConnect(dbMethods);
-
+      collection = db.collection("tweets")
+      callback(Tweets);
+    });
   }
-
-}
