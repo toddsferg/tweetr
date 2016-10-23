@@ -25,21 +25,24 @@
 .header  {
 
   font-size: 2em;
-
   color: white;
-
   line-height: 80px;
   float: left;
 }
 
-#nav-span {
+#compose-button {
   color: #00a870;
   float: right;
-  height: 50px;
-  width: 75px;
+  height: 60px;
+  padding:10px;
+  text-align:center;
+  margin-top:10px;
+  line-height: 60px;
+
+  width: 100px;
   line-height:80px;
   background-color: white;
-  margin: 15px;
+
   border-radius: 5px;
   border: 2px solid black;
 

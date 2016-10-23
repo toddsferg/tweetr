@@ -18,7 +18,7 @@ article header {
 
   margin-top: 20px;
   float: left;
-  font-size: 1.5em;
+  font-size: 1em;
   color: #244751;
 
 }
@@ -39,6 +39,7 @@ article header {
   margin-right: .5em;
   color: #cccccc;
   margin-top: .5em;
+  font-size: .7em;
 
 }
 
