@@ -50,7 +50,7 @@ $('form').on("submit", function(event){
 
   ////////length verification
 
-  if( tweetLength < 2){
+  if(tweetLength < 2){
     $('#warning').text('too short');
     setTimeout(function(){$('#warning').text(''); }, 2500);
   } else if(tweetLength > 140){
@@ -63,9 +63,7 @@ $('form').on("submit", function(event){
     url: '/tweets',
     dataType: 'json',
     data: $(this).serialize()
-
-
-  });
+    });
   loadTweets();
 }
 });

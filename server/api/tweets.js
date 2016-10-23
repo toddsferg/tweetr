@@ -12,7 +12,7 @@ module.exports = function(db) {
     setTimeout(() => {
       return res.json(tweets);
     }, 300);
-
+  });
 
   tweets.post("/", function(req, res) {
     if (!req.body.text) {
@@ -34,5 +34,4 @@ module.exports = function(db) {
 
   return tweets;
 
-
-});
+}

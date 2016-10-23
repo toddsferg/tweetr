@@ -1,6 +1,4 @@
 
-/*area*/
-
 .new-tweet {
   background-color: #eee;
   margin: 2em;
@@ -9,7 +7,6 @@
   padding-bottom: 2em;
   border-radius: 5px;
  }
-/*underline*/
 
  .new-tweet h2 {
   width: 100%;
@@ -17,19 +14,16 @@
   margin-top: 0px;
 }
 
-/*text area*/
-
 .new-tweet textarea {
   margin-top: 10px;
   height: 3em;
   width: 100%;
   padding-bottom: 30px;
 }
-/* button*/
+
 section span {
   float: right;
   padding-bottom: 20px;
-
 }
 
 #warning {
