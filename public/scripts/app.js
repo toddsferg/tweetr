@@ -4,12 +4,14 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function(){
-
+ (function loadPage(){
+  loadTweets();
+ })();
 
 function renderTweets(array){
 
   for( var i = 0; i < array.length; i++){
-    var currentTweet = array[i];
+    var currentTweet = array.slice(-1)[i];
     var $newTweet = createTweetElement(currentTweet);
     $('.feeder').prepend($newTweet);
   }
@@ -18,7 +20,7 @@ function renderTweets(array){
 //////////Built Tweet Element
 
 function createTweetElement(tweetData){
-  var time = new Date;
+  var time = Math.floor((Date.now() - tweetData.created_at)/8.64e+7);
   var $freshTweet = $("<article>").addClass("tweeted");
   var $header = $('<header>');
   var $avatar = $('<img>').addClass("avatar").attr("src", tweetData.user.avatars.regular);
@@ -27,7 +29,7 @@ function createTweetElement(tweetData){
   var $midspace = $('<div>').addClass("midspace");
   var $tweettext = $('<p>').addClass("tweettext").text(tweetData.content.text)
   var $footer = $('<footer>').addClass("footer");
-  var $dateSent = $('<p>').addClass("dateSent").text(time);
+  var $dateSent = $('<p>').addClass("dateSent").text(time + " days ago");
   var $iconHeart = $("<i>").attr({"class": "fa fa-heart", "aria-hidden": "true"});
   var $iconRetweet = $("<i>").attr({"class": "fa fa-retweet", "aria-hidden": "true"});
   var $iconFlag = $("<i>").attr({"class": "fa fa-font-awesome", "aria-hidden": "true"});
@@ -57,7 +59,6 @@ $('form').on("submit", function(event){
     $('#warning').text('tweet too long!');
     setTimeout(function(){$('#warning').text(''); }, 2500);
   } else {
-  console.log("submit");
   $.ajax({
     method: 'post',
     url: '/tweets',
@@ -75,9 +76,9 @@ $('form').on("submit", function(event){
    $.ajax({
       url: '/tweets',
       method: 'GET',
-      data: $(this).serialize(),
       dataType: 'json'
     }).done(function(data){
+      console.log("this is data \n\n", data);
       renderTweets(data);
     })
   }
