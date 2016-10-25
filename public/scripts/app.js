@@ -8,13 +8,14 @@ $(document).ready(function(){
   loadTweets();
  })();
 
-function renderTweets(array){
+$('.new-tweet').hide();
 
-  for( var i = 0; i < array.length; i++){
-    var currentTweet = array.slice(-1)[i];
+function renderTweets(array){
+  for( var i in array){
+    var currentTweet = array[i];
     var $newTweet = createTweetElement(currentTweet);
     $('.feeder').prepend($newTweet);
-  }
+  }return true
 }
 
 //////////Built Tweet Element
@@ -42,18 +43,20 @@ function createTweetElement(tweetData){
   var $tweet = $('.feeder').prepend($freshTweet);
   return $tweet;
  }
-
 //Hijax with Ajax
 
-$('form').on("submit", function(event){
 
+
+
+$('form').on("submit", function(event){
   event.preventDefault();
+
   var tweetLength = $(this).find('textarea').val().length;
 
   ////////length verification
 
-  if( tweetLength < 2){
-    $('#warning').text('too short');
+  if( tweetLength < 1){
+    $('#warning').text('Type a little!');
     setTimeout(function(){$('#warning').text(''); }, 2500);
   } else if(tweetLength > 140){
     $('#warning').text('tweet too long!');
@@ -64,22 +67,26 @@ $('form').on("submit", function(event){
     url: '/tweets',
     dataType: 'json',
     data: $(this).serialize()
-
-
   });
-  loadTweets();
-}
+  loadTweets(false);
+  }
 });
 
-  function loadTweets(){
+  function loadTweets(allTweets){
     event.preventDefault();
-   $.ajax({
+   var allTheTweets = $.ajax({
       url: '/tweets',
       method: 'GET',
       dataType: 'json'
-    }).done(function(data){
-      console.log("this is data \n\n", data);
-      renderTweets(data);
+    });
+   allTheTweets.done(function(data){
+     // console.log("this is data \n\n", data);
+      var singleTweet = [data[data.length -1]];
+      if (allTweets == true){
+        renderTweets(data);
+      }else if (allTweets == false){
+        renderTweets(singleTweet);
+      }
     })
   }
 
@@ -90,9 +97,7 @@ $('#nav-span').on("click", function toggle(){
     $('textarea').focus();
   });
 });
-
 $('textarea').focus();
-
 })
 
 

@@ -1,4 +1,5 @@
 "use strict";
+
 const User    = require("../lib/user-helper")
 const express = require('express');
 const tweets  = express.Router();
@@ -25,7 +26,7 @@ module.exports = function(Tweets) {
       created_at: Date.now()
     };
 
-    console.log("this is the singular tweet \n\n\n\n\n", tweet);
+    //console.log("this is the singular tweet \n\n\n\n\n", tweet);
     Tweets.saveTweet(tweet);
     return res.send();
   });
