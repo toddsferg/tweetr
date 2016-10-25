@@ -5,10 +5,10 @@
  */
 $(document).ready(function(){
  (function loadPage(){
-  loadTweets();
+  loadTweets(true);
  })();
 
-$('.new-tweet').hide();
+ $('.new-tweet').hide();
 
 function renderTweets(array){
   for( var i in array){
@@ -51,9 +51,8 @@ function createTweetElement(tweetData){
 $('form').on("submit", function(event){
   event.preventDefault();
 
-  var tweetLength = $(this).find('textarea').val().length;
 
-  ////////length verification
+  var tweetLength = $(this).find('textarea').val().length;
 
   if( tweetLength < 1){
     $('#warning').text('Type a little!');
